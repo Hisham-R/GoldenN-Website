@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Golden N</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"/>
+
+     <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Bar Icon -->
+    <link rel="shortcun icon" href="Images/LogoGold.png">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- MixItUp 3 JS -->
+    <script src="mixitup.min.js"></script>
+    <!-- ScrollReveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+  </head>
+<body>
+
+    <!-- Navbar and Header -->
+    <header class="header" id="header">
+
+        <nav class="nav container">
+          <!-- Logo -->
+          <a href="#" class="nav__logo">
+            <div class="logo"><img src="Images/LogoGold.png" /></div>
+          </a>
+          <!-- Navbar Item -->
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="index.html#Home" class="nav__link">Home</a>
+              </li>
+              <li class="nav__item">
+                <a href="index.html#Popular" class="nav__link">Popular</a>
+              </li>
+              <li class="nav__item">
+                <a href="index.html#Featured" class="nav__link">Featured</a>
+              </li>
+              <li class="nav__item">
+                <a href="index.html#About" class="nav__link">About</a>
+              </li>
+            </ul>
+            <!-- Closing Icon -->
+            <div class="nav__close" id="nav-close">
+              <i class="ri-close-fill"></i>
+            </div>
+          </div>
+          <!-- Toggle Button -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-3-line"></i>
+          </div>
+        </nav>
+      </header>
+      
+      <div class="container-contact">
+        <div class="form">
+          <form action="Connect.php" method="POST" autocomplete="off">
+            <h3 class="title">BOOK A VISIT</h3>
+            &nbsp;
+            <div class="input-container">
+              <input type="text" name="name" class="input" required/>
+              <label>Full Name</label>
+              <span>Full Name</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="email" class="input" required/>
+              <label>Email</label>
+              <span>Email</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="phone" class="input" required/>
+              <label>Phone</label>
+              <span>Phone</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="message" class="input" required></textarea>
+              <label>Message</label>
+              <span>Message</span>
+            </div>
+            <input type="submit" name="submit" value="Send" class="btn" />
+          </form>
+  
+          <div class="contact-form">
+            <span class="circle one"></span>
+            <span class="circle two"></span>
+  
+            <div class="contact-info">
+              <h3 class="title">GET IN TOUCH</h3>
+              <p class="text">
+                Have any questions? We'd love to hear from you.
+              </p>
+    
+              <div class="info">
+                <div class="information">
+                  <i class="ri-map-pin-line"></i>
+                  <p>&nbsp;&nbsp;Headquarter : New Cairo - Industrial Area</p>
+                </div>
+                <div class="information">
+                  <i class="ri-mail-line"></i>
+                  <p>&nbsp;&nbsp;Goldenn.eg@gmail.com</p>
+                </div>
+                <div class="information">
+                  <i class="ri-phone-line"></i>
+                  <p>&nbsp;&nbsp;0120-007-2666</p>
+                </div>
+              </div>
+              <br><br><br><br><br><br><br><br><br>
+             <div class="footer__content">
+          <h3 class="footer__title">
+              Follow Us
+          </h3>
+          
+          <ul class="footer__social">
+            <li>
+              <a href="https://www.facebook.com/Golden.N.Automotive" target="_blank" class="footer__social-link">
+                <i class="ri-facebook-fill"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/goldenneg/" target="_blank" class="footer__social-link">
+                <i class="ri-instagram-line"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCnXakYiIOIdLEAh-QHjNx9g/featured" target="_blank" class="footer__social-link">
+                <i class="ri-youtube-line"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+         <!-- Main Java Script -->
+    <script src="main2.js"></script>
+</body>
+</html>

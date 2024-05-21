@@ -1,0 +1,731 @@
+<?php
+  session_start();
+  if( !isset($_SESSION["loggedUser"]) )
+  {
+    header("Location: http://localhost/Project/Login.html");
+  }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Golden N</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
+     <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Bar Icon -->
+    <link rel="shortcun icon" href="Images/LogoGold.png">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- MixItUp 3 JS -->
+    <script src="mixitup.min.js"></script>
+    <!-- ScrollReveal JS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+  </head>
+
+  <body>
+
+    <?php
+    include "Config.php";
+    $Email = $_SESSION["loggedUser"];
+    $viewUser = "SELECT * FROM registration WHERE = '$Email'";
+
+    $result = mysqli_query($con, $viewUser);
+    if(!$result)
+    {
+      echo "Error: " .mysqli_error($con);
+    }
+    $row = mysqli_fetch_array($result);
+
+    $FullName = $row["FullName"];
+
+    ?>
+    
+    <!-- Navbar and Header -->
+    <header class="header" id="header">
+
+      <nav class="nav container">
+        <!-- Logo -->
+        <a href="index.html#Home" class="nav__logo">
+          <div class="logo"><img src="Images/LogoGold.png" /></div>
+        </a>
+        <!-- Navbar Item -->
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#Home" class="nav__link active-link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="#Popular" class="nav__link">Popular</a>
+            </li>
+            <li class="nav__item">
+              <a href="#Featured" class="nav__link">Featured</a>
+            </li>
+            <li class="nav__item">
+              <a href="#About" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="Login.html" class="nav__link bttn"><i class="ri-user-3-line"></i> Login</a>
+            </li>
+          </ul>
+          <!-- Closing Icon -->
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-fill"></i>
+          </div>
+        </div>
+        <!-- Toggle Button -->
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-3-line"></i>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+
+      <!-- Landing(Home) -->
+      <section class="home section" id="Home">
+
+        <div class="home__container container grid">
+          <div class="home__data">
+            <!-- 
+            <div class="buttons">
+              <button class="button1"><a href="">Discover</a></button>
+              <button class="button2"><a href="">Contact Us</a></button>
+            </div> -->
+          </div>
+          <video class="home__video" alt="Background Video" src="vid/GoldenN.mp4" autoplay autobuffer loop muted></video>
+        </div>
+
+        <div class="main-text">
+          <span class="span1">Everday</span>
+          <span class="span2">Since 1984</span>
+        </div>
+      </section>
+
+      <br><br><br><br><br>
+      <br><br><br><br><br>
+      <br><br><br><br><br>
+      <br><br><br><br><br>
+      <br><br><br><br><br>
+      <br><br><br><br><br>
+      <br><br><br><br><br>
+      <br><br><br><br>
+
+      <!-- Popular -->
+      <section class="popular section" id="Popular">
+        <h2 class="section__title">Most Popular </h2>
+
+        
+        <div class="popular__container container swiper">
+          <div class="swiper-wrapper">
+
+            <!-- Car 1 - BMW M2 -->
+            <article class="popular__card swiper-slide">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="popular__title">BMW</h1>
+              <h2 class="popular_subtitle">M2</h2>
+
+              <img src="Images/BMW.png" alt="" class="popular__img">
+
+              <div class="popular__data">
+                <div class="popular__data-group">
+                  <i class="ri-calendar-todo-fill"></i> 2018
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-funds-line"></i> 405 HP
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-gas-station-line"></i> Gas
+                </div>
+              </div>
+
+              <h3 class="popular__price">1,078,000 EGP</h3>
+              <button class="popular__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <!-- Car 2 - G -->
+            <article class="popular__card swiper-slide">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="popular__title">Mercedes Benz</h1>
+              <h2 class="popular_subtitle">G500</h2>
+
+              <img src="Images/G.png" alt="" class="popular__img">
+
+              <div class="popular__data">
+                <div class="popular__data-group">
+                  <i class="ri-calendar-todo-fill"></i> 2015
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-funds-line"></i> 416 HP
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-gas-station-line"></i> Gas
+                </div>
+
+              </div>
+
+              <h3 class="popular__price">3,800,000 EGP</h3>
+              <button class="popular__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <!-- Car 3 - Range -->
+            <article class="popular__card swiper-slide">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="popular__title">Range Rover </h1>
+              <h2 class="popular_subtitle">Sport HSE</h2>
+
+              <img src="Images/Range.png" alt="" class="popular__img">
+
+              <div class="popular__data">
+                <div class="popular__data-group">
+                  <i class="ri-calendar-todo-fill"></i> 2019
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-funds-line"></i> 360 HP
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-gas-station-line"></i> Gas
+                </div>
+
+              </div>
+
+              <h3 class="popular__price">3,000,000 EGP</h3>
+              <button class="popular__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <!-- Car 4 - Evo -->
+            <article class="popular__card swiper-slide">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="popular__title">Mitsubishi Lancer</h1>
+              <h2 class="popular_subtitle">Evo 9</h2>
+
+              <img src="Images/Evo.png" alt="" class="popular__img">
+
+              <div class="popular__data">
+                <div class="popular__data-group">
+                  <i class="ri-calendar-todo-fill"></i> 2007
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-funds-line"></i> 286 HP
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-gas-station-line"></i> Gas
+                </div>
+
+              </div>
+
+              <h3 class="popular__price">800,000 EGP</h3>
+              <button class="popular__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+
+             <!-- Car 5 - Tesla -->
+             <article class="popular__card swiper-slide">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="popular__title">Tesla</h1>
+              <h2 class="popular_subtitle">Model S</h2>
+
+              <img src="Images/Tesla.png" alt="" class="popular__img">
+
+              <div class="popular__data">
+                <div class="popular__data-group">
+                  <i class="ri-calendar-todo-fill"></i> 2019
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-funds-line"></i> 670 HP
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-gas-station-line"></i> Electric
+                </div>
+
+              </div>
+
+              <h3 class="popular__price">1,754,645 EGP</h3>
+              <button class="popular__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+             <!-- Car 6 - Jaguar -->
+             <article class="popular__card swiper-slide">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="popular__title">Jaguar</h1>
+              <h2 class="popular_subtitle">F-Type</h2>
+
+              <img src="Images/Jaguar.png" alt="" class="popular__img">
+
+              <div class="popular__data">
+                <div class="popular__data-group">
+                  <i class="ri-calendar-todo-fill"></i> 2017
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-funds-line"></i> 380 HP
+                </div>
+                <div class="popular__data-group">
+                  <i class="ri-gas-station-line"></i> Gas
+                </div>
+
+              </div>
+
+              <h3 class="popular__price">1,900,000 EGP</h3>
+              <button class="popular__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+          </div>
+            <div class="swiper-pagination"></div>
+        </div>  
+      </section>
+      
+      <!-- Featured -->
+      <section class="featured section" id="Featured">
+        <h2 class="section__title">
+          Featured Cars
+        </h2>
+
+        <div class="featured__container container">
+          <ul class="featured__filters">
+            <li>
+              <button class="featured__item active-featured" data-filter="all">
+                <span>All</span>
+              </button>
+            </li>
+            <li>
+              <button class="featured__item" data-filter=".BMW">
+                <img src="Images/BMWLogo.png" alt="BMW Logo">
+              </button>
+            </li>
+            <li>
+              <button class="featured__item" data-filter=".Mercedes">
+                <img src="Images/BenzLogo.png" alt="Mercedes Logo">
+              </button>
+            </li>
+            <li>
+              <button class="featured__item" data-filter=".Lamborghini">
+                <img src="Images/LamboLogo.png" alt="Tesla Logo">
+              </button>
+            </li>
+            <li>
+              <button class="featured__item" data-filter=".Audi">
+                <img src="Images/AudiLogo.png" alt="Range Rover Logo">
+              </button>
+            </li>
+            <li>
+              <button class="featured__item" data-filter=".Lancer">
+                <img src="Images/LancerLogo.png" alt="Lancer Logo">
+              </button>
+            </li>
+          </ul>
+
+          <!-- Featured Vehicles + Prices -->
+          <div class="featured__content grid">
+            <article class="featured__card mix BMW">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">BMW</h1>
+
+              <h3 class="featured__subtitle">M2</h3>
+
+              <img src="Images/M2.png" alt="BMW M2" class="featured__img">
+
+              <h3 class="featured__price">1,078,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix BMW">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">BMW</h1>
+
+              <h3 class="featured__subtitle">i8</h3>
+
+              <img src="Images/i8.png" alt="BMW i8" class="featured__img">
+
+              <h3 class="featured__price">2,750,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix BMW">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">BMW</h1>
+
+              <h3 class="featured__subtitle">Z4</h3>
+
+              <img src="Images/Z4.png" alt="BMW Z4" class="featured__img">
+
+              <h3 class="featured__price">1,200,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix BMW">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">BMW</h1>
+
+              <h3 class="featured__subtitle">M8</h3>
+              <img src="Images/M8.png" alt="BMW M8" class="featured__img">
+              <h3 class="featured__price">2,990,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix BMW">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">BMW</h1>
+
+              <h3 class="featured__subtitle">M4</h3>
+              <img src="Images/M4.png" alt="BMW M8" class="featured__img">
+              <h3 class="featured__price">2,990,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix Mercedes">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">Mercedes</h1>
+
+              <h3 class="featured__subtitle">AMG GT</h3>
+
+              <img src="Images/AmgGT.png" alt="AMG GT" class="featured__img">
+
+              <h3 class="featured__price">3,520,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix Mercedes">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">Mercedes</h1>
+
+              <h3 class="featured__subtitle">G 500</h3>
+
+              <img src="Images/GWagon.png" alt="G Wagon" class="featured__img">
+
+              <h3 class="featured__price">3,800,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix Mercedes">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">Mercedes</h1>
+
+              <h3 class="featured__subtitle">AMG GT53</h3>
+
+              <img src="Images/GT53.png" alt="AMG GT53" class="featured__img">
+
+              <h3 class="featured__price">3,800,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix Lamborghini">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">Lamborghini</h1>
+
+              <h3 class="featured__subtitle">Aventador</h3>
+
+              <img src="Images/Lambo.png" alt="Aventador" class="featured__img">
+
+              <h3 class="featured__price">8,968,500 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            
+            <article class="featured__card mix Lamborghini">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">Lamborghini</h1>
+
+              <h3 class="featured__subtitle">Urus</h3>
+
+              <img src="Images/Urus.png" alt="Urus" class="featured__img">
+
+              <h3 class="featured__price">3,924,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix Audi">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">Audi</h1>
+
+              <h3 class="featured__subtitle">R8</h3>
+
+              <img src="Images/R8.png" alt="R8" class="featured__img">
+
+              <h3 class="featured__price">2,267,600 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix Audi">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">Audi</h1>
+
+              <h3 class="featured__subtitle">A7</h3>
+
+              <img src="Images/A7.png" alt="R7" class="featured__img">
+
+              <h3 class="featured__price">1,245,600 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix Audi">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">Audi</h1>
+
+              <h3 class="featured__subtitle">RS7</h3>
+
+              <img src="Images/RS7.png" alt="RS7" class="featured__img">
+
+              <h3 class="featured__price">1,052,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix Lancer">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">Lancer</h1>
+
+              <h3 class="featured__subtitle">EVO 10</h3>
+
+              <img src="Images/Evo10.png" alt="Evo 10" class="featured__img">
+
+              <h3 class="featured__price">1,100,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+            <article class="featured__card mix Lancer">
+              <div class="shape shape__smaller"></div>
+
+              <h1 class="featured__title">Lancer</h1>
+
+              <h3 class="featured__subtitle">EVO 9</h3>
+
+              <img src="Images/Evo9.png" alt="Evo 10" class="featured__img">
+
+              <h3 class="featured__price">800,000 EGP</h3>
+
+              <button class="featured__button" onclick="location.href='ContactUs.html';">
+                <i class="ri-mail-add-line"></i>
+              </button>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- About Us -->
+      <section class="about section" id="About">
+        <div class="about__container container grid">
+          <div class="about__group">
+            <img src="Images/Card.jpg" alt="About Us Image" class="about__img">
+          </div>
+          
+          <div class="about__data">
+            <h2 class="section__title about__title">About Us</h2>
+            <p class="about__description">We pride ourselves in pioneering the car trade industry in Egypt, and we would like to share with you the history
+                of our showroom thoughout ages. In 1984: Golden N established a used car showroom dealing in all brands available 
+                in the market at the time, and in 2018 opened the biggest Pre-Owned Exotic car showroom in Egypt, Cairo.
+            </p>
+            
+            <a href="About.html" class="button">Read More</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Logos Section -->
+      <section class="logos section">
+        <div class="logos__container container grid">
+          <div class="logos__content">
+            <img src="Images/LamboLogo.png" alt="Lambo Logo" class="logos__img">
+          </div>
+          <div class="logos__content">
+            <img src="Images/BMWLogo.png" alt="BMW Logo" class="logos__img">
+          </div>
+          <div class="logos__content">
+            <img src="Images/TeslaLogo.png" alt="McLaren Logo" class="logos__img">
+          </div>
+          <div class="logos__content">
+            <img src="Images/AudiLogo.png" alt="Audi Logo" class="logos__img">
+          </div>
+          <div class="logos__content">
+            <img src="Images/FerrariLogo.png" alt="Ferrari Logo" class="logos__img">
+          </div>
+          <div class="logos__content">
+            <img src="Images/BenzLogo.png" alt="Mercedes Logo" class="logos__img">
+          </div>
+          <div class="logos__content">
+            <img src="Images/LancerLogo.png" alt="Lancer Logo" class="logos__img">
+          </div>
+          <div class="logos__content">
+            <img src="Images/RangeLogo.png" alt="Range Logo" class="logos__img">
+          </div>
+
+          
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer section">
+      
+      <div class="footer__container container grid">
+        <div class="footer__content">
+          <a href="#" class="footer__logo">
+            Golden N
+          </a>
+          <p class="footer__description">
+            Brand New & Pre-Owned <br>European Car Specialist, Since 1984.
+          </p>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">
+              Support
+          </h3>
+          
+          <ul class="footer__links">
+            <li>
+              <a href="" class="footer__link">Contact Us</a>
+            </li>
+            <li>
+              <a href="" class="footer__link">FAQ</a>
+            </li>
+            <li>
+              <a href="" class="footer__link">Careers</a>
+            </li>
+            <li>
+              <a href="" class="footer__link">Locate A Dealer</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">
+              Legal
+          </h3>
+          
+          <ul class="footer__links">
+            <li>
+              <a href="" class="footer__link">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="" class="footer__link">Terms & Conditions</a>
+            </li>
+            <li>
+              <a href="" class="footer__link">Legal Information</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">
+              Follow Us
+          </h3>
+          
+          <ul class="footer__social">
+            <li>
+              <a href="https://www.facebook.com/Golden.N.Automotive" target="_blank" class="footer__social-link">
+                <i class="ri-facebook-fill"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/goldenneg/" target="_blank" class="footer__social-link">
+                <i class="ri-instagram-line"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCnXakYiIOIdLEAh-QHjNx9g/featured" target="_blank" class="footer__social-link">
+                <i class="ri-youtube-line"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <span class="footer__bottom">
+        © Golden N 2022. All rights reserved. Designed by <span class="footer__dev">Hisham Refaee</span>
+      </span>
+    </footer>
+
+    <!-- Main Java Script -->
+    <script src="main.js"></script>
+
+  </body>
+</html>
